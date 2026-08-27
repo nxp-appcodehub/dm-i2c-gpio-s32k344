@@ -4,6 +4,7 @@
 ## Motion and Temperature Sensing using LPI2C and GPIO on FRDM-A-S32K344 with MCAL Drivers
 This demo shows how to configure and use the LPI2C and GPIO drivers from the Real-Time Drivers (RTD / MCAL) package on the FRDM-A-S32K344 Evaluation Board using S32 Design Studio.
 The example demonstrates motion and temperature monitoring using I2C sensor communication and RGB LED control via GPIO.
+[<p align="center"><img src="./images/FRDM-A-S32K344-Motion-FM.png" width="400"/></p>](./images/FRDM-A-S32K344-Motion-FM.png)
 
 #### Boards: FRDM-A-S32K344
 #### Categories: Communication
@@ -19,15 +20,29 @@ The example demonstrates motion and temperature monitoring using I2C sensor comm
 6. [Release Notes](#step7)
 
 ## 1. Software and Tools<a name="step1"></a>
-This example was developed using the FRDM Automotive Bundle for S32K3. To download and install the complete software and tools ecosystem, use the following link: [ S32K3 FRDM Automotive Board Installation Package](https://www.nxp.com/app-autopackagemgr/automotive-software-package-manager:AUTO-SW-PACKAGE-MANAGER?currentTab=0&selectedDevices=S32K3&applicationVersionID=156)
+This example was developed using the FRDM Automotive Bundle for S32K3 + S32M27. To download and install the complete software and tools ecosystem, use the following link:
+- [ FRDM Automotive S32K3 + S32M27 Board Installation Package](https://www.nxp.com/app-autopackagemgr/automotive-software-package-manager:AUTO-SW-PACKAGE-MANAGER?currentTab=0&selectedDevices=S32K3&applicationVersionID=203)
 
 ## 2. Hardware<a name="step2"></a>
 ### 2.1 Required Hardware
 - Personal Computer
-- 12V Power Adapter
-- S32 Debugger (PEmicro)
 - Type-C USB cable
-- [FRDM-A-S32K344](https://www.nxp.com/design/design-center/development-boards-and-designs/S32K344MINI-EVB)[<p align="center"><img src="images/S32K344MINI-EVB.png" width="400"/></p>](./images/S32K344MINI-EVB.png)
+
+| Boards | Images |
+| ------ | ------ |
+| - [FRDM-A-S32K344](https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-A-S32K344) | <img src="https://www.nxp.com/assets/images/en/dev-board-image/FRDM-A-S32K344-TOP.png" width="600"> |
+| - [Accel 4 Click](https://www.mikroe.com/accel-4-click) | <p align="center"><img src="images/accel_4_click.png" width="300"/> |
+| - [FRDM K64 click shield](https://www.mikroe.com/frdm-k64-click-shield) | <p align="center"><img src="images/frdm-k64-click.jpg" width="400"/> |
+
+**Note:** The S32K344MINI-EVB 2025 and earlier models include an onboard FXLS8964AF accelerometer, making the Accel 4 Click optional
+
+### 2.2 Hardware Connections
+| FRDM-A-S32K344   | Header Pin |I/O| FRDM Shield  | Click Board   | Click Pin | Description  |
+|------------------|------------|---|--------------|---------------|-----------|--------------|
+| PTC6 LPI2C1_SDA  | J2 pin 17  | → | SDA          | Accel 4 Click | SDA       | I2C SDA Pin  |
+| PTC7 LPI2C1_SCL  | J2 pin 19  | → | SCL          | Accel 4 Click | SCL       | I2C SCL Pin  |
+| GND              | JA3 pin 11 | → | GND          | Accel 4 Click | GND       | Ground       |
+| VDD_HV_B_PERH         | JA3 pin 7  | → | 3.3V         | Accel 4 Click | 3V3       | Power Supply |
 
 ### 2.3 Debugger Connection
 - Connect the PEmicro debugger to the Cortex Debug connector
@@ -116,3 +131,4 @@ Questions regarding the content/correctness of this example can be entered as Is
 | Version | Description / Update                           | Date                        |
 |:-------:|------------------------------------------------|----------------------------:|
 | 1.0     | Initial release on Application Code Hub        |February 17<sup>th</sup> 2026|
+| 1.1     | Updated to FRDM Automotive S32K3 + S32M27 (RTD 7.0.1)        |August 24<sup>th</sup> 2026|
